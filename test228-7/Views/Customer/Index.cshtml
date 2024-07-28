@@ -1,0 +1,30 @@
+﻿@model IEnumerable<test228_7.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="card col-2 m-2" style="width: 18rem;">
+            <img src="~/Content/images/@item.Image" class="card-img-top" alt=".image.">
+            <div class="card-body">
+                <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Name)</h5>
+                <p class="card-text"> @Html.DisplayFor(modelItem => item.Email)</p>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.CustomerId }, new { @class = "btn btn-secondary" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId }, new { @class = "btn btn-danger" })
+
+            </div>
+        </div>
+     }
+</div>
